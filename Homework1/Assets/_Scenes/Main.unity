@@ -242,6 +242,7 @@ GameObject:
   - component: {fileID: 698480359}
   - component: {fileID: 698480363}
   - component: {fileID: 698480364}
+  - component: {fileID: 698480365}
   m_Layer: 0
   m_Name: redBall
   m_TagString: Untagged
@@ -343,6 +344,20 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &698480365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 698480358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9305cc100a66d6e46947ec040ff415d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  x: 0
+  y: 0
+  z: 0
 --- !u!1 &1062025934
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,6 +371,7 @@ GameObject:
   - component: {fileID: 1062025935}
   - component: {fileID: 1062025939}
   - component: {fileID: 1062025940}
+  - component: {fileID: 1062025941}
   m_Layer: 0
   m_Name: blueBall
   m_TagString: Untagged
@@ -457,6 +473,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1062025941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1062025934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c86e848937dbcef46b4387b25173226e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  x: 0
+  y: 0
+  z: 0
 --- !u!1 &1196673670
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,6 +566,7 @@ GameObject:
   - component: {fileID: 1475087028}
   - component: {fileID: 1475087032}
   - component: {fileID: 1475087033}
+  - component: {fileID: 1475087034}
   m_Layer: 0
   m_Name: yellowBall
   m_TagString: Untagged
@@ -637,6 +668,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1475087034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1475087027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd0a49da3d33df942b8bc7931bb6073e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  x: 0
+  y: 0
+  z: 0
 --- !u!1 &1893591373
 GameObject:
   m_ObjectHideFlags: 0
