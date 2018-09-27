@@ -1,2 +1,2 @@
-# Unity-Homework-1
-Unity game development course - homework 1
+# Unity-Homeworks
+Unity game development course homeworks
