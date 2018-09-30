@@ -123,7 +123,6 @@ GameObject:
   - component: {fileID: 649734100}
   - component: {fileID: 649734099}
   - component: {fileID: 649734098}
-  - component: {fileID: 649734097}
   - component: {fileID: 649734101}
   - component: {fileID: 649734102}
   m_Layer: 0
@@ -133,20 +132,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &649734097
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 649734096}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &649734098
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -241,7 +226,6 @@ GameObject:
   - component: {fileID: 698480360}
   - component: {fileID: 698480359}
   - component: {fileID: 698480363}
-  - component: {fileID: 698480364}
   - component: {fileID: 698480365}
   m_Layer: 0
   m_Name: redBall
@@ -332,18 +316,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &698480364
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 698480358}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &698480365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,6 +330,8 @@ MonoBehaviour:
   x: 0
   y: 0
   z: 0
+  _rigidBody: {fileID: 698480363}
+  forceY: 430
 --- !u!1 &1062025934
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,7 +342,6 @@ GameObject:
   - component: {fileID: 1062025938}
   - component: {fileID: 1062025937}
   - component: {fileID: 1062025936}
-  - component: {fileID: 1062025935}
   - component: {fileID: 1062025939}
   - component: {fileID: 1062025940}
   - component: {fileID: 1062025941}
@@ -379,18 +352,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!135 &1062025935
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1062025934}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1062025936
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -487,6 +448,8 @@ MonoBehaviour:
   x: 0
   y: 0
   z: 0
+  _rigidBody: {fileID: 1062025940}
+  forceY: 430
 --- !u!1 &1196673670
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,7 +526,6 @@ GameObject:
   - component: {fileID: 1475087031}
   - component: {fileID: 1475087030}
   - component: {fileID: 1475087029}
-  - component: {fileID: 1475087028}
   - component: {fileID: 1475087032}
   - component: {fileID: 1475087033}
   - component: {fileID: 1475087034}
@@ -574,18 +536,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!135 &1475087028
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1475087027}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1475087029
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -682,6 +632,7 @@ MonoBehaviour:
   x: 0
   y: 0
   z: 0
+  _rigidBody: {fileID: 1475087033}
 --- !u!1 &1893591373
 GameObject:
   m_ObjectHideFlags: 0

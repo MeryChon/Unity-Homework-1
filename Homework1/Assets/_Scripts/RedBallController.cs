@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class RedBallController : MonoBehaviour
 {
-    public float x = -4f;
-    public float y = 4f;
-    public float z = 0f;
+
+    public Rigidbody _rigidBody;
+    public int forceY;
 
     private int numCollisions;
+    private float x, y, z;
 
 
     private void Awake()
@@ -24,7 +25,6 @@ public class RedBallController : MonoBehaviour
     private void Start()
     {
         //გამოიძახება მხოლოდ ერთხელ, სცენის ჩატვირთვის შემდეგ
-        Debug.Log("sdklsdjlfksd");
     }
 
     private void Update()
@@ -36,11 +36,17 @@ public class RedBallController : MonoBehaviour
     {
         //გამოიძახება ყოველ ჯერზე როდესაც ობიექტი ხდება აქტიური (ინსპექტორში enable ღილაკის მონიშვნით)
         transform.position = new Vector3(x, y, z);
-        Debug.Log(transform.position);
     }
 
     private void OnDisable()
     {
         //გამოიძახება ყოველ ჯერზე როდესაც ობიექტი ხდება არა აქტიური (ინსპექტორში enable ღილაკის მონიშვნით)
+        this._rigidBody.velocity = new Vector3(0,0,0);
+    }
+
+    void OnCollisionEnter()
+    {
+        this._rigidBody.AddForce(0, this.forceY, 0);
+        Debug.Log(++this.numCollisions);
     }
 }
