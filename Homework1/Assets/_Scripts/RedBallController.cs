@@ -6,7 +6,7 @@ public class RedBallController : MonoBehaviour
 {
 
     public Rigidbody _rigidBody;
-    public int forceY;
+    public int forceY = 430;
 
     private int numCollisions;
     private float x, y, z;

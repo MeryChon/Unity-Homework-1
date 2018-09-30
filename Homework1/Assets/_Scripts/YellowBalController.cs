@@ -8,7 +8,7 @@ public class YellowBalController : MonoBehaviour
     public Rigidbody _rigidBody;
 
     private float x, y, z, startTime, speed, totalDistance;
-    private Vector3 startPosition, endPosition;
+    private Vector3 initialPosition, startPosition, endPosition;
 
 
     private void Awake()
@@ -17,6 +17,7 @@ public class YellowBalController : MonoBehaviour
         this.x = 4f;
         this.y = 4f;
         this.z = 0f;
+        this.initialPosition = new Vector3(this.x, this.y, this.z);
     }
 
     private void Start()
@@ -25,13 +26,15 @@ public class YellowBalController : MonoBehaviour
         this.startTime = Time.time;
         this.speed = 20f;
         this.totalDistance = 4f;
+        
         this.startPosition = new Vector3(this.x, 0, this.z);
         this.endPosition = new Vector3(this.x, this.y, this.z);
+        
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) || transform.position == this.initialPosition)
         {
             Debug.Log("before setting " + this._rigidBody.velocity);
             this._rigidBody.velocity = new Vector3(0, 0, 0);
@@ -63,7 +66,7 @@ public class YellowBalController : MonoBehaviour
     private void OnEnable()
     {
         //გამოიძახება ყოველ ჯერზე როდესაც ობიექტი ხდება აქტიური (ინსპექტორში enable ღილაკის მონიშვნით)
-        transform.position = new Vector3(x, y, z);
+        transform.position = this.initialPosition;
     }
 
     private void OnDisable()

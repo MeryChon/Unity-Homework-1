@@ -6,7 +6,7 @@ public class BlueBallController : MonoBehaviour
 {
 
     public Rigidbody _rigidBody;
-    public int forceY;
+    public int forceY = 430;
 
     private float x, y, z;
     private bool isOnGround;
