@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class TileController : MonoBehaviour {
 
+    private Color originalColor;
+
 	// Use this for initialization
 	void Start () {
-		
-	}
+        originalColor = GetComponent<Renderer>().material.color;
+
+    }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void OnCollisionEnter(Collision collision)
+    {
+        GameObject collider = collision.gameObject;
+        GetComponent<Renderer>().material.color = collider.GetComponent<Renderer>().material.color;
+
+    }
+
+    void OnCollisionExit()
+    {
+        GetComponent<Renderer>().material.color = originalColor;
+    }
 }
