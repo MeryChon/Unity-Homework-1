@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-
-    private Vector3 offset;
     public GameObject ball;
+    private Vector3 offset;
 
     // Use this for initialization
     void Start()
