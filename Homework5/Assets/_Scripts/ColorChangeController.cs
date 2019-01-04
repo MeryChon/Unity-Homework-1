@@ -29,6 +29,7 @@ public class ColorChangeController : MonoBehaviour {
 
         Color targetColor = _initialColor + _color * (sliderValue - _previousSliderValue);
         cubeMaterial.SetColor(colorName, targetColor);
+        transform.parent.gameObject.GetComponent<Image>().color = targetColor;
         _previousSliderValue = sliderValue;
     }
 }
