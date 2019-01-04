@@ -1,4 +1,4 @@
-﻿Shader "Unlit/VerticalGradientOld"
+﻿Shader "Unlit/VerticalGradient"
 {
 	Properties
 	{
