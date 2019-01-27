@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 9e0fa5b72566eea4fbd3f3cf2e11f0af
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: AC Mountain
+  fontNames:
+  - AC Mountain
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 0ac5f238dbcb07f42b666b6512edf8b1, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

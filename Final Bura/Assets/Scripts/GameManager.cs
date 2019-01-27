@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
@@ -9,32 +8,39 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     private int _numCardsToDeal;
 
-    private GameObject _trumpCardCode;
+    private GameObject _trumpCard;
+    private const int CARD_MODEL_SCALE= 1000;
     
 
 	void Start () {
         //Choose trump card
-        _trumpCardCode = GetRandomCardCode();
-        _deck.Remove(_trumpCardCode);
-        Debug.Log("Trump card is " + _trumpCardCode);
+        GameObject trumpCardModel = GetRandomCard();
+        GameObject deckPanel = GameObject.FindWithTag("DeckPanel");
+        GameObject _trumpCard = AddCardToPanel(trumpCardModel, deckPanel);
+        _deck.Remove(trumpCardModel);
+        
 
         GameObject playerCardsPanel = GameObject.FindWithTag("PlayerCardsPanel");
         //Choose 5 random cards from deck and put them into player panel
         for (int i=0; i<_numCardsToDeal; i++)
         {
-            GameObject nextCard = GetRandomCardCode();
-            GameObject card = Instantiate(nextCard, playerCardsPanel.transform);
-            Transform cardTransform = card.transform;
-            cardTransform.localScale = cardTransform.localScale * 1000;
-            cardTransform.eulerAngles = new Vector3(180f, 0f, 0f);
-            cardTransform.SetParent(playerCardsPanel.transform, false);
-            LayoutElement elem = card.AddComponent<LayoutElement>();
-
-            _deck.Remove(nextCard);
+            GameObject nextCardModel = GetRandomCard();
+            _deck.Remove(nextCardModel);
         }
 	}
 
-    private GameObject GetRandomCardCode()
+    private GameObject AddCardToPanel(GameObject cardModel, GameObject panel)
+    {
+        GameObject card = Instantiate(cardModel, panel.transform);
+        Transform cardTransform = card.transform;
+        cardTransform.localScale = cardTransform.localScale * CARD_MODEL_SCALE;
+        cardTransform.eulerAngles = new Vector3(180f, 0f, 0f);
+        cardTransform.SetParent(panel.transform, false);
+        card.AddComponent<LayoutElement>();
+        return card;
+    }
+
+    private GameObject GetRandomCard()
     {    
         int size = _deck.Count;
         int randomIndex = Random.Range(0, size);
