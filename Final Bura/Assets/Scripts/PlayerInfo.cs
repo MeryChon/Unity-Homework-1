@@ -15,12 +15,4 @@ public class PlayerInfo : NetworkBehaviour
     {
         Object.DontDestroyOnLoad(this);
     }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            Debug.Log(_playerName);
-        }
-    }
 }

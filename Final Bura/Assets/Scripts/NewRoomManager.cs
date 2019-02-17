@@ -20,12 +20,12 @@ public class NewRoomManager : MonoBehaviour
         Destroy(gameObject);
     }
 
+
     GameObject InstantiateRoomInfoPanel(GameObject parentObject)
     {
         GameObject roomInfo = Instantiate(_roomInfoPrefab, parentObject.transform, false);
 
         InputField roomNameInput = transform.Find("NewRoomPanel/RoomNameInputField").gameObject.GetComponent<InputField>();
-        Debug.Log(roomInfo.transform.Find("RoomName"));
         TextMeshProUGUI roomNameText = roomInfo.transform.Find("RoomName").gameObject.GetComponent<TextMeshProUGUI>();
         if (roomNameInput != null && roomNameInput.text != "")
         {
