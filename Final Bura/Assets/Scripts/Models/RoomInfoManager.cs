@@ -6,6 +6,8 @@ public class RoomInfoManager : NetworkBehaviour
 {
 
     private int _numPlayers { get; set; }
+    private string _creatorName { get; set; }
+
 
        
     public void EnterRoom()

@@ -8,8 +8,9 @@ public class PlayerInfo : NetworkBehaviour
     private const int MAX_NUM_CARDS = 5;
 
     public static string _playerName;
-    public static List<string> _cards = new List<string>();
-    public static int _numCurrentCards;
+    public static List<Card> _cards = new List<Card>();
+    private int _numCurrentCards;
+    private int _currentPoints;
 
     void Awake()
     {

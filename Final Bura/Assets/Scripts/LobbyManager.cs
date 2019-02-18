@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.Networking;
-using TMPro;
+using UnityEngine.UI;
 
 public class LobbyManager : NetworkBehaviour
 {
@@ -10,6 +10,7 @@ public class LobbyManager : NetworkBehaviour
     private GameObject _newRoomCanvas;
     [SerializeField]
     private GameObject _roomInfoPrefab;
+
 
     void Start()
     {
@@ -35,18 +36,18 @@ public class LobbyManager : NetworkBehaviour
     {
         GameObject roomsScrollView = GameObject.Find("RoomsGrid");
         GameObject viewContent = roomsScrollView.transform.Find("Viewport/Content").gameObject;
-        if (roomsScrollView != null)
-        {
-            GameObject roomInfoPanel = InstantiateRoomInfoPanel(viewContent);
-        }
+        GameObject roomInfo = InstantiateRoomInfo(viewContent);
+        NetworkServer.Spawn(roomInfo);
         _newRoomCanvas.SetActive(false);
     }
+
+
 
     /*
      * Instantiate new room prefab.
      * Empty input fields in new room creation panel.
      */
-    GameObject InstantiateRoomInfoPanel(GameObject parentObject)
+    GameObject InstantiateRoomInfo(GameObject parentObject)
     {
         GameObject roomInfo = Instantiate(_roomInfoPrefab, parentObject.transform, false);
 
