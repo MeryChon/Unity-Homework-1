@@ -1,5 +1,4 @@
 ﻿
 public class GameInfo {
-    public static string _playerName;
-	
+    public static string _playerName;	
 }

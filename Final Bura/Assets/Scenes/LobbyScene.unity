@@ -1333,8 +1333,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcd91f112ce632a499460d2a59c1248e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _newRoomCanvas: {fileID: 0}
-  _roomInfoPrefab: {fileID: 0}
+  _newRoomCanvas: {fileID: 1452297485}
+  _roomInfoPrefab: {fileID: 1065865359642024, guid: 6ff50c63ea2606a4391895760e4655df,
+    type: 2}
 --- !u!1 &950692433
 GameObject:
   m_ObjectHideFlags: 0

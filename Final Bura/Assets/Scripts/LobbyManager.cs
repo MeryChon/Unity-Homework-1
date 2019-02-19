@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-public class LobbyManager : NetworkBehaviour
+public class LobbyManager : MonoBehaviour
 {
 
     [SerializeField]
@@ -15,7 +15,7 @@ public class LobbyManager : NetworkBehaviour
     void Start()
     {
         Text playerNameText = transform.Find("PlayerName").gameObject.GetComponent<Text>();
-        playerNameText.text = PlayerInfo._playerName;
+        playerNameText.text = GameInfo._playerName;
     }
 
 
@@ -37,7 +37,7 @@ public class LobbyManager : NetworkBehaviour
         GameObject roomsScrollView = GameObject.Find("RoomsGrid");
         GameObject viewContent = roomsScrollView.transform.Find("Viewport/Content").gameObject;
         GameObject roomInfo = InstantiateRoomInfo(viewContent);
-        NetworkServer.Spawn(roomInfo);
+        //NetworkServer.Spawn(roomInfo);
         _newRoomCanvas.SetActive(false);
     }
 
