@@ -1,11 +1,12 @@
 ﻿public enum Rank { SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE }
-public enum Suit { HEART, SPADE, CLUB, DIAMOND }
+public enum Suit { NONE,  HEART, SPADE, CLUB, DIAMOND }
 
 public class Card
 {
     private int _rank;
     private Suit _suit;
     private int _scoreValue;
+    private bool _isTrumpCard;
 
     public Card(string cardName)
     {
@@ -99,6 +100,21 @@ public class Card
     public int GetScoreValue()
     {
         return this._scoreValue;
+    }
+
+    public bool IsTrumpCard()
+    {
+        return this._isTrumpCard;
+    }
+
+    public void SetIsTrumpCard(bool isTrumpCard)
+    {
+        this._isTrumpCard = isTrumpCard;
+    }
+
+    public override string ToString()
+    {
+        return "Suit: " + this._suit.ToString() + "; Rank: " + this._rank + "; Value: " + this._scoreValue;
     }
 
 }

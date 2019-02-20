@@ -1,14 +1,42 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Networking;
 
 
 public class PlayerNetworkObjectManager : NetworkBehaviour
 {
 
-    [SerializeField]
-    private GameObject _playerInfoPrefab;
+    //[SerializeField]
+    //private GameObject _playerInfoPrefab;
 
-    private string _playerName { get; set; }
+    private string _playerName
+    {
+        get
+        {
+            return _playerName;
+        }
+    }
+
+    private List<Card> _currentPlayerCards;
+
+    //[SyncVar] //TODO
+    public List<Card> _cardsLaidDown;
+
+    private int _currentPoints
+    {
+        get
+        {
+            return _currentPoints;
+        }
+    }
+    private int _totalScore
+    {
+        get
+        {
+            return _totalScore;
+        }
+    }
+
 
     void Start()
     {
@@ -17,15 +45,15 @@ public class PlayerNetworkObjectManager : NetworkBehaviour
             return;
         }
 
-        CmdSpawnPlayerInfo();
+        //CmdSpawnPlayerInfo();
     }
 
-    [Command]
-    void CmdSpawnPlayerInfo()
-    {
-        GameObject playerInfoObj = Instantiate(_playerInfoPrefab);
-        NetworkServer.Spawn(playerInfoObj);
-    }
+    //[Command]
+    //void CmdSpawnPlayerInfo()
+    //{
+    //    GameObject playerInfoObj = Instantiate(_playerInfoPrefab);
+    //    NetworkServer.Spawn(playerInfoObj);
+    //}
 
     void OnServerConnect(NetworkMessage msg)
     {

@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     private int _numCardsToDeal;
 
     private GameObject _trumpCard;
-    private const int CARD_MODEL_SCALE = 1000;
+    private const int CARD_MODEL_SCALE = 9;
 
 
     void Start()
@@ -19,41 +19,51 @@ public class GameManager : MonoBehaviour
         //Choose 5 random cards from deck and put them into player panel
         for (int i = 0; i < _numCardsToDeal; i++)
         {
-            GameObject nextCardModel = GetRandomCard();
-            AddCardToPanel(nextCardModel, playerCardsPanel);
-            _deck.Remove(nextCardModel);
+            GameObject nextCardPrefab = GetRandomCard();
+            AddCardToPanel(nextCardPrefab, playerCardsPanel, false);
+            _deck.Remove(nextCardPrefab);
         }
 
         //Choose trump card
-        GameObject trumpCardModel = GetRandomCard();
+        GameObject trumpCardPrefab = GetRandomCard();
         GameObject deckPanel = GameObject.FindWithTag("DeckPanel");
-        _trumpCard = AddCardToPanel(trumpCardModel, deckPanel);
-        _deck.Remove(trumpCardModel);
+        Debug.Log(deckPanel);
+        _trumpCard = AddCardToPanel(trumpCardPrefab, deckPanel, true);
+        _deck.Remove(trumpCardPrefab);
     }
 
-    private GameObject AddCardToPanel(GameObject cardModel, GameObject panel)
+
+    private GameObject AddCardToPanel(GameObject cardPrefab, GameObject panel, bool isTrumpCard)
     {
-        GameObject card = Instantiate(cardModel, panel.transform);
+        GameObject card = Instantiate(cardPrefab, panel.transform, false);
         Transform cardTransform = card.transform;
 
+        //if(!isTrumpCard)
+        //{
+        //    card.AddComponent<Draggable>();
+        //}
+
         Card currentCard = new Card(cardTransform.name);
-        PlayerInfo._cards.Add(currentCard);
-
-        cardTransform.localScale = cardTransform.localScale * CARD_MODEL_SCALE;
-        cardTransform.eulerAngles = new Vector3(180f, 0f, 0f);
-        cardTransform.SetParent(panel.transform, false);
-
+        currentCard.SetIsTrumpCard(isTrumpCard);
+        card.GetComponent<CardManager>()._cardObject = currentCard;
+        PlayerInfo._cardsOnHand.Add(card);
         card.AddComponent<LayoutElement>();
-        card.AddComponent<CardManager>();
+
+        if (isTrumpCard)
+        {
+            GameInfo._trumpSuit = currentCard.GetSuit();
+        }
+        
         return card;
     }
 
     private GameObject GetRandomCard()
     {
         int size = _deck.Count;
-        int randomIndex = Random.Range(0, size);
+        int randomIndex = UnityEngine.Random.Range(0, size);
         return _deck[randomIndex];
     }
+
 
     public void OnQuitButtonClick()
     {
