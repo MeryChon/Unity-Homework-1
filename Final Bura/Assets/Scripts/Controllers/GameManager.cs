@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
 
     public void OnQuitButtonClick()
     {
-        Debug.Log("Quit was clicked");
+        Application.Quit();
     }
 
     public void OnDaviButtonClicked()

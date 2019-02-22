@@ -1,12 +1,8 @@
-﻿using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Networking;
 
 public class SetupLocalPlayer : NetworkBehaviour
 {
-    [SyncVar]
-    public string _currentMoveSuit = "NONE";
-
     [SyncVar]
     public string _playerName = "Default name"; //TODO : is sync var correctly used here?
 
@@ -14,7 +10,9 @@ public class SetupLocalPlayer : NetworkBehaviour
     {
         if (isLocalPlayer)
         {
-            GetComponent<PlayerManager>().enabled = true;
+            PlayerManager playerManager = GetComponent<PlayerManager>();
+            playerManager._playerName = _playerName;
+            playerManager.enabled = true;            
         }
         CmdSetTrumpSuit("asdasd");
     }
