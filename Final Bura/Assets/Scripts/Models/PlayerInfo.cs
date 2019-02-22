@@ -12,12 +12,12 @@ public class PlayerInfo : NetworkBehaviour
     public static List<GameObject> _cardsLaidDown = new List<GameObject>();
     public static Suit _currentMoveSuit = Suit.NONE;
     public static int _numCardsLaid = 0;
-    //public static int _numCurrentCards;
     public static int _currentPoints;
 
     void Awake()
     {
         Object.DontDestroyOnLoad(this);
+        Debug.Log("Awake in PlayerInfo");
     }
 
     public static bool CardAlreadyLaidDown(GameObject card)

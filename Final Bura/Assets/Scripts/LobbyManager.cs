@@ -36,7 +36,7 @@ public class LobbyManager : MonoBehaviour
     {
         GameObject roomsScrollView = GameObject.Find("RoomsGrid");
         GameObject viewContent = roomsScrollView.transform.Find("Viewport/Content").gameObject;
-        GameObject roomInfo = InstantiateRoomInfo(viewContent);
+        InstantiateRoomInfo(viewContent);
         //NetworkServer.Spawn(roomInfo);
         _newRoomCanvas.SetActive(false);
     }

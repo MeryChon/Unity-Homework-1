@@ -1,15 +1,28 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.Networking;
 
-public class SetupLocalPlayer : NetworkBehaviour {
+public class SetupLocalPlayer : NetworkBehaviour
+{
+    [SyncVar]
+    public string _currentMoveSuit = "NONE";
 
-	// Use this for initialization
-	void Start () {
-		if(isLocalPlayer)
+    [SyncVar]
+    public string _playerName = "Default name"; //TODO : is sync var correctly used here?
+
+    void Start()
+    {
+        if (isLocalPlayer)
         {
-            //TODO: enable player controller script
-            GetComponent<LocalPlayerController>().enabled = true;
+            GetComponent<PlayerManager>().enabled = true;
         }
-	}
+        CmdSetTrumpSuit("asdasd");
+    }
+
+    [Command]
+    public void CmdSetTrumpSuit(string trumpSuit)
+    {
+        Debug.Log("I'm a server");
+    }
 
 }
