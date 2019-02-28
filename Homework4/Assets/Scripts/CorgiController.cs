@@ -16,17 +16,25 @@ public class CorgiController : MonoBehaviour {
     private KeyCode _shoot;
     [SerializeField]
     private float _force;
+    [SerializeField]
+    private GameObject leftBullet, rightBullet;
+    [SerializeField]
+    private bool isFacingRight;
 
 
     private Rigidbody2D _rigidBody;
     private Animator corgiAnimator;
     private bool isJumping;
-    private Vector2 spwanPosition;
+    private Vector2 spawnPosition;
+    private Transform firePosition;
+
 
     void Start () {
         _rigidBody = GetComponent<Rigidbody2D>();
         corgiAnimator = GetComponent<Animator>();
         isJumping = false;
+
+        firePosition = transform.Find("FirePosition");
 	}
 	
 	void Update () {
@@ -41,12 +49,17 @@ public class CorgiController : MonoBehaviour {
         if (Input.GetKey(_left))
         {
             corgiAnimator.SetBool("mustRun", true);
-            transform.position = oldPosition + new Vector2(-_velocity, 0);  
+            transform.position = oldPosition + new Vector2(-_velocity, 0);
+            isFacingRight = false;
             
         } else if (Input.GetKey(_right))
         {
             corgiAnimator.SetBool("mustRun", true);
             transform.position = oldPosition + new Vector2(_velocity, 0);
+            isFacingRight = true;
+        } else if(Input.GetKeyDown(_shoot))
+        {
+            Shoot();
         }
         if (Input.GetKey(_jump) && !isJumping)
         {
@@ -70,6 +83,31 @@ public class CorgiController : MonoBehaviour {
             corgiAnimator.SetBool("mustJump", false);
         }
 
+    }
+
+
+    void Shoot()
+    {
+        
+        GameObject fireBurst = firePosition.gameObject;
+        Debug.Log(fireBurst.activeSelf);
+        fireBurst.SetActive(true);
+        //GameObject bullet;
+        //if(isFacingRight)
+        //{
+        //    bullet = leftBullet;
+        //    //Instantiate(rightBullet, firePosition.position, Quaternion.identity);
+        //} else
+        //{
+        //    bullet = rightBullet;
+            
+        //}
+        //Instantiate(bullet, firePosition.position, Quaternion.identity);
+        //if (bullet.transform.position.x >= fireBurst.transform.position.x + 0.2)
+        //{
+        //    fireBurst.SetActive(false);
+        //}
+        
     }
 
 }
