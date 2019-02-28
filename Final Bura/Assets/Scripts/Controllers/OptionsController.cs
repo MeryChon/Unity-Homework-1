@@ -33,6 +33,10 @@ public class OptionsController : MonoBehaviour
         _mixer.GetFloat("soundVolume", out _oldSoundVolume);
         _musicSource = _musicObject.GetComponent<AudioSource>();
         _efxSource = _eFXObject.GetComponent<AudioSource>();
+
+        _musicToggle.isOn = !_musicSource.mute;
+        _efxSoundsToggle.isOn = !_efxSource.mute;
+        _volumeSlider.value = _oldSoundVolume;
     }
 
     void OnEnable()
@@ -67,7 +71,7 @@ public class OptionsController : MonoBehaviour
     public void Quit()
     {
         _musicSource.mute = !_oldMusicOn;
-        _musicToggle.isOn = _oldMusicOn;
+        _musicToggle.isOn = _oldMusicOn;        
 
         _efxSource.mute = !_oldEfxSoundsOn;
         _efxSoundsToggle.isOn = _oldEfxSoundsOn;

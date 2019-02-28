@@ -596,8 +596,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mixer: {fileID: 24100000, guid: d543f9b386855034db0a7d9ff9a430d4, type: 2}
-  _musicObject: {fileID: 0}
-  _eFXObject: {fileID: 0}
   _volumeSlider: {fileID: 114269099994769186}
   _musicToggle: {fileID: 114760653092932576}
   _efxSoundsToggle: {fileID: 114276856397461998}
